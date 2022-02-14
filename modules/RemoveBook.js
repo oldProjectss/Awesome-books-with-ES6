@@ -1,9 +1,9 @@
 import setLocalStore from './localStorage.js';
-import { books } from './start.js';
+import { Books } from './start.js';
 
 const removeBook = (index) => {
-  books.splice(index, 1);
-  setLocalStore(books);
+  Books.books.splice(index, 1);
+  setLocalStore(Books.books);
 };
 
 export default removeBook;

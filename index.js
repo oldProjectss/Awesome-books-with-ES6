@@ -1,6 +1,7 @@
-import start from './modules/start.js';
+import { start } from './modules/start.js';
 import { listButton, addButton, contactButton } from './modules/DisplaySections.js';
 import input from './modules/input.js';
+import displayBooks from './modules/DisplayBook.js';
 import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 
 const addBtn = document.querySelector('.add_book_btn');
@@ -14,6 +15,7 @@ addBtn.addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   start();
+  displayBooks();
 });
 
 listBtn.addEventListener('click', () => {

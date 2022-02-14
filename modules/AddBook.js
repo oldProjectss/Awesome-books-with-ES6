@@ -1,15 +1,15 @@
 import displayBooks from './DisplayBook.js';
 import setLocalStore from './localStorage.js';
-import { books } from './start.js';
+import { Books } from './start.js';
 
 const addBook = (title, author) => {
   const book = {
     author,
     title,
   };
-  books.push(book);
+  Books.books.push(book);
   displayBooks();
-  setLocalStore(books);
+  setLocalStore(Books.books);
 };
 
 export default addBook;

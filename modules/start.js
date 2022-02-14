@@ -1,23 +1,23 @@
-import displayBooks from './DisplayBook.js';
-
-export let books = [
-  {
-    author: 'ipsum',
-    title: 'Testyy',
-  },
-  {
-    author: 'lorem',
-    title: 'Testeroo',
-  },
-];
+class Books {
+  books = [
+    {
+      author: 'ipsum',
+      title: 'Testyy',
+    },
+    {
+      author: 'lorem',
+      title: 'Testeroo',
+    },
+  ];
+}
 
 function start() {
   if (localStorage.getItem('bookStore')) {
-    books = JSON.parse(localStorage.getItem('bookStore'));
-    displayBooks();
-  } else if (books) {
-    displayBooks();
+    Books.books = JSON.parse(localStorage.getItem('bookStore'));
+    // displayBooks();
+  } else if (Books.books) {
+    // displayBooks();
   }
 }
 
-export default start;
+export { Books, start };

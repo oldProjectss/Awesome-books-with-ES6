@@ -1,11 +1,11 @@
 import removeBook from './RemoveBook.js';
-import { books } from './start.js';
+import { Books } from './start.js';
 
 const bookList = document.querySelector('.book_list');
 
 const displayBooks = () => {
   bookList.innerHTML = '';
-  books.forEach((book, index) => {
+  Books.books.forEach((book, index) => {
     const li = document.createElement('li');
     const article = document.createElement('article');
     const title = document.createElement('p');
