@@ -1,9 +1,9 @@
-import { removeBook } from './RemoveBook.js';
+import removeBook from './RemoveBook.js';
 import { books } from './start.js';
 
 const bookList = document.querySelector('.book_list');
 
-export const displayBooks = () => {
+const displayBooks = () => {
   bookList.innerHTML = '';
   books.forEach((book, index) => {
     const li = document.createElement('li');
@@ -31,3 +31,5 @@ export const displayBooks = () => {
     });
   });
 };
+
+export default displayBooks;
