@@ -1,5 +1,4 @@
-// import { books } from './BookList.js';
-import { displayBooks } from './DisplayBook.js';
+import displayBooks from './DisplayBook.js';
 
 export let books = [
   {
@@ -12,7 +11,7 @@ export let books = [
   },
 ];
 
-export function start() {
+function start() {
   if (localStorage.getItem('bookStore')) {
     books = JSON.parse(localStorage.getItem('bookStore'));
     displayBooks();
@@ -20,3 +19,5 @@ export function start() {
     displayBooks();
   }
 }
+
+export default start;
