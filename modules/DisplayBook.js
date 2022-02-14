@@ -1,5 +1,5 @@
 import { removeBook } from './RemoveBook.js';
-import { books } from './BookList.js';
+import { books } from './start.js';
 
 const bookList = document.querySelector('.book_list');
 

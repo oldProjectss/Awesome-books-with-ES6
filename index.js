@@ -1,38 +1,34 @@
-import { addBook } from './modules/AddBook.js';
-import { removeBook } from './modules/RemoveBook.js';
-import { displayBooks } from './modules/DisplayBook.js';
-import { setLocalStore } from './modules/localStorage.js';
-import { books } from './modules/BookList.js';
+import { start } from './modules/start.js';
+import { listButton, addButton, contactButton } from './modules/DisplaySections.js';
+import { input } from './modules/input.js';
 
 const addBtn = document.querySelector('.add_book_btn');
-const titleInput = document.querySelector('.title');
-const authorInput = document.querySelector('.author');
-
-addBtn.addEventListener('click', () => {
-  if (titleInput.value && authorInput.value) {
-    addBook(titleInput.value, authorInput.value);
-    titleInput.value = '';
-    authorInput.value = '';
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('bookStore')) {
-    books = JSON.parse(localStorage.getItem('bookStore'));
-    displayBooks();
-  } else if (books) {
-    displayBooks();
-  }
-});
-
-const bookListSection = document.querySelector('.book_list_section');
-const AddbookSection = document.querySelector('.add_book');
-const contactSection = document.querySelector('.contact_section');
-const timeDisplay = document.querySelector('.time-display');
-
 const listBtn = document.querySelector('.list');
 const addNewBtn = document.querySelector('.add_new');
 const contactBtn = document.querySelector('.contact');
+
+addBtn.addEventListener('click', () => {
+  input();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  start();
+});
+
+listBtn.addEventListener('click', () => {
+  listButton();
+});
+
+addNewBtn.addEventListener('click', () => {
+  addButton();
+});
+
+contactBtn.addEventListener('click', () => {
+  contactButton();
+});
+
+// toDo
+const timeDisplay = document.querySelector('.time-display');
 
 const setTime = () => {
   const date = new Date();
@@ -57,21 +53,3 @@ const setTime = () => {
 };
 
 setInterval(setTime, 1000);
-
-listBtn.addEventListener('click', () => {
-  bookListSection.style.display = 'flex';
-  AddbookSection.style.display = 'none';
-  contactSection.style.display = 'none';
-});
-
-addNewBtn.addEventListener('click', () => {
-  bookListSection.style.display = 'none';
-  AddbookSection.style.display = 'flex';
-  contactSection.style.display = 'none';
-});
-
-contactBtn.addEventListener('click', () => {
-  bookListSection.style.display = 'none';
-  AddbookSection.style.display = 'none';
-  contactSection.style.display = 'flex';
-});
